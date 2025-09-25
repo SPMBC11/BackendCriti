@@ -11,9 +11,9 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 
-app.use('/users', usersRoutes);
-app.use('/albums', albumsRoutes);
-app.use('/reviews', reviewsRoutes);
+app.use('/api/users', usersRoutes);
+app.use('/api/albums', albumsRoutes);
+app.use('/api/reviews', reviewsRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err);
