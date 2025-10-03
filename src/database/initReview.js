@@ -26,7 +26,7 @@ const initialReviews = [
     content: "Demasiado experimental para mi gusto, esperaba algo distinto.",
     score: 4.3,
     is_low_score: true,
-    album_id: 5, // Good for you
+    album_id: 5, // FERXXO VOL 10: SAGRADO (corrige según tu orden real)
     user_id: 4   // Sofía
   },
   {
@@ -40,14 +40,14 @@ const initialReviews = [
     content: "LMFAO siempre me pone a bailar, fiesta asegurada.",
     score: 8.0,
     is_low_score: false,
-    album_id: 22, // Party Rock
+    album_id: 18, // Party Rock
     user_id: 6    // el.xokas
   },
   {
     content: "Muy flojo este trabajo, esperaba más de Justin Bieber.",
     score: 3.5,
     is_low_score: true,
-    album_id: 23, // Swag
+    album_id: 19, // Swag
     user_id: 2    // Laura
   }
 ];
