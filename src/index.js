@@ -5,7 +5,7 @@ import { loadInitialArtists } from './database/initArtist.js';
 import { loadInitialAlbums } from './database/initAlbum.js';
 import { loadInitialReviews } from './database/initReview.js';
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 
 (async () => {
   try {
@@ -22,3 +22,8 @@ const PORT = process.env.PORT || 4000;
     console.error('Error al iniciar', err);
   }
 })();
+
+
+app.get("/ping", (req, res) => {
+  res.json({ message: "pong" });
+});
