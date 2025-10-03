@@ -1,5 +1,5 @@
 
-import { User } from '../models/Indexs.js';
+import { User } from '../models/index.js';
 
 export const listUsers = async (req, res, next) => {
   try {

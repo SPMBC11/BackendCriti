@@ -1,5 +1,5 @@
 
-import { Album } from '../models/Indexs.js';
+import { Album } from '../models/index.js';
 
 export const listAlbums = async (req, res, next) => {
   try {

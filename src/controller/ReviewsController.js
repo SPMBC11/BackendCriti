@@ -1,4 +1,4 @@
-import { Review, User, Album } from '../models/Indexs.js';
+import { Review, User, Album } from '../models/index.js';
 
 export const getAllReviews = async (req, res, next) => {
   try {
