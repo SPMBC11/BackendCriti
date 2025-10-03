@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 4000;
 
 (async () => {
   try {
-    await sequelize.sync({ force: false });
+    await sequelize.sync({ force: true });
     console.log('DB sincronizada');
 
     await loadInitialUsers();
