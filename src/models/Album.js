@@ -41,7 +41,18 @@ const AlbumModel = (sequelize, DataTypes) => {
       foreignKey: "artist_id",
       as: "artist"
     });
+
+    // Un álbum puede estar en muchas playlists
+  Album.belongsToMany(models.Playlist, {
+    through: "playlist_albums",
+    foreignKey: "album_id",
+    otherKey: "playlist_id",
+    as: "playlists"
+  });
   };
+
+
+
 
   return Album;
 };

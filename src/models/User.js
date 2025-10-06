@@ -41,7 +41,15 @@ const UserModel = (sequelize, DataTypes) => {
       foreignKey: "user_id",
       as: "reviews"
     });
+    // Un usuario puede tener muchas playlists
+     User.hasMany(models.Playlist, {
+    foreignKey: "user_id",
+    as: "playlists"
+    });
   };
+
+
+ 
 
   return User;
 };

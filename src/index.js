@@ -4,6 +4,7 @@ import { loadInitialUsers } from './database/initUser.js';
 import { loadInitialArtists } from './database/initArtist.js';
 import { loadInitialAlbums } from './database/initAlbum.js';
 import { loadInitialReviews } from './database/initReview.js';
+import { loadInitialPlaylists } from "./database/initPlaylist.js";
 
 const PORT = process.env.PORT || 5000;
 
@@ -16,6 +17,8 @@ const PORT = process.env.PORT || 5000;
     await loadInitialArtists();
     await loadInitialAlbums();
     await loadInitialReviews();
+    await loadInitialPlaylists();
+
 
     app.listen(PORT, () => console.log(`Servidor escuchando en puerto ${PORT}`));
   } catch (err) {
