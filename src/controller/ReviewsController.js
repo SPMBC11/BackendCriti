@@ -21,12 +21,11 @@ export const createReview = async (req, res, next) => {
     const album = await Album.findByPk(albumId);
     if (!album) return res.status(404).json({ error: 'Album not found' });
 
-    // ✅ usar las columnas reales de la BD
     const review = await Review.create({
       user_id: userId,
       album_id: albumId,
-      score: rating,        // asumo que "score" en la tabla equivale a rating
-      content: comment ?? "" // si "comment" corresponde a "content"
+      score: rating,       
+      content: comment ?? "" 
     });
 
     res.status(201).json(review);
@@ -35,12 +34,27 @@ export const createReview = async (req, res, next) => {
 
 export const getReviewsByAlbum = async (req, res, next) => {
   try {
+    const albumId = req.params.albumId;
+
     const reviews = await Review.findAll({
-      where: { album_id: req.params.albumId }, // ✅ usar album_id
-      include: ['user']
+      where: { album_id: albumId },
+      include: [
+        {
+          association: 'user',
+          attributes: ['id', 'username', 'profile_pic']
+        }
+      ]
     });
+
+    if (!reviews || reviews.length === 0) {
+      return res.status(404).json({ message: "No se encontraron reseñas para este álbum" });
+    }
+
     res.json(reviews);
-  } catch (err) { next(err); }
+  } catch (err) {
+    console.error("❌ Error en getReviewsByAlbum:", err);
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
 };
 
 export const getReviewsByUser = async (req, res, next) => {
@@ -78,3 +92,5 @@ export const deleteReview = async (req, res, next) => {
     res.json({ message: 'Review deleted' });
   } catch (err) { next(err); }
 };
+
+

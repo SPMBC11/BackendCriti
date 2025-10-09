@@ -49,7 +49,15 @@ const AlbumModel = (sequelize, DataTypes) => {
     otherKey: "playlist_id",
     as: "playlists"
   });
+
+
+  Album.hasMany(models.Review, {
+    foreignKey: "album_id",
+    as: "reviews"
+  });
   };
+
+
 
 
 
